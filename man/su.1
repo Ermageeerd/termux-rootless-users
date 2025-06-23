@@ -1,0 +1,71 @@
+.TH SU 1 "May 2025" "Termux Compatibility" "User Commands"
+.SH NAME
+su \- Termux compatibility wrapper for root command emulation
+.SH SYNOPSIS
+.B su
+.RI [OPTION]... " [-] [USER [ARG]...]"
+.SH DESCRIPTION
+The
+.B su
+command in this Termux context is a compatibility wrapper that allows unprivileged users to emulate the behavior of the standard Linux
+.B su
+command.
+
+It provides a way to execute commands as root (UID 0) or to start a root shell in a
+.I proot-distro
+environment (such as Alpine Linux), even without real root privileges.
+
+If a real
+.B su
+binary is available (e.g., from Magisk or SuperSU), this script delegates to it.
+
+.SH OPTIONS
+.TP
+.BR -c " COMMAND"
+Pass
+.I COMMAND
+to the shell as root (via proot), emulating
+.B su -c
+behavior.
+.TP
+.BR - , -l , --login
+Start a login shell as a selected user in Alpine Linux (if installed). Defaults to root.
+.TP
+.BR --help , -h
+Display usage information and exit.
+.TP
+.B USER
+Select a user in Alpine Linux. (if installed)
+
+.SH USAGE
+.TP
+.B su -c "command"
+Runs the specified command as root using
+.B proot -0
+in the current Termux environment.
+.TP
+.B su
+Starts an interactive root shell in Alpine Linux (via proot-distro), if installed.
+.TP
+.B su --help
+Displays help and usage information.
+
+.SH EXAMPLES
+.TP
+.B su -c "ls /root"
+Runs "ls /root" as root (via proot).
+.TP
+.B su
+Opens a root shell inside Alpine Linux (if available).
+
+.SH LIMITATIONS
+This wrapper does not grant real root privileges; all root-like operations are emulated within Termux or proot-distro.  
+Occasionally, the termux-tools package will update and override our rootless su, the only fix is making a .local/bin directory and adding it to your $BIN.
+
+.SH AUTHOR
+Ermageeerd
+
+.SH SEE ALSO
+.BR proot (1),
+.BR proot-distro (1),
+.BR termux (1)

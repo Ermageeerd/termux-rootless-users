@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+if [ $# -ne 0 ]; then
+    proot-distro login alpine -- chsh "$@"
+else
+    exec /data/data/com.termux/files/usr/bin/unused/chsh
+fi

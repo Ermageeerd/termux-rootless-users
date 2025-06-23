@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+unset LD_LIBRARY_PATH LD_PRELOAD
+
+
+proot-distro login alpine -- sudo "$@"

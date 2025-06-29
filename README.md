@@ -20,6 +20,9 @@
 Because not everyone wants the the full user system. I'm trying to give a choice.
 
 Credits:
+
 Github Copilot - Early versions
+
 Gemini - Most of the rest
-Me - Not being fully retarded
+
+Me - Install scripts.

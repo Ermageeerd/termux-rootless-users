@@ -12,7 +12,7 @@ add_binaries() {
     chmod +x "$PREFIX/bin/su"
     echo "su installed"
     proot-distro login alpine -- apk add sudo
-    cp ./su "$PREFIX/bin/sudo"
+    cp ./sudo "$PREFIX/bin/sudo"
     chmod +x "$PREFIX/bin/sudo"
     echo "sudo installed"
     cp ./adduser "$PREFIX/bin/adduser"
